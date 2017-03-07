@@ -1,0 +1,391 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{color}
+
+\begin{document}
+	\section{Equation of motion}
+	\paragraph{}In what follows is a derivation of the equations of motion for the rover. This derivation is based largely on derivation found in \cite{nelson} for the airplane's equations of motion, yet adapted to motion of a body in 2-d plane.
+	
+	\subsection*{assumptions}
+	\begin{itemize}
+		\item The rolling of the wheels is assumed to be pure rolling without slipping.
+		\item The rear wheel friction is assumed to be damped friction. 
+		\item The axes are taken in the way described in figure \ref{fig:topView}
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		\def\svgwidth{200pt}
+		\input{roverTopView.pdf_tex}
+		\caption{Rover top view and axes used}
+		\label{fig:topView}
+	\end{figure}
+	\subsection{Derivation}
+	The basic concept of the derivation is to apply Newton's second law for linear and angular motions.
+	\begin{subequations}
+	\begin{equation}
+	F = \frac{d}{dt}\left(mv\right)
+	\end{equation} 
+	\begin{equation}
+	M = \frac{d}{dt} H
+	\end{equation}
+	\label{eqn:newton_second}
+	\end{subequations}
+	where H is the angular momentum. In order to apply this, we consider that the rover is comprised of a large number of small particles for which the linear and angular momenta will be calculated, then summed up over the whole body, so for linear momentum
+	\begin{equation}
+	mv = \sum_{i} v_i\delta m 
+	\label{eqn:mv}
+	\end{equation}
+	where $v_i$ is the velocity of each particle, which can be expressed as
+	\begin{equation}
+	\vec{v_i} = \vec{v}_{cg} + \vec{\omega} \times \vec{r_i} 
+	\label{eqn:relative}
+	\end{equation}
+	then substituting in \ref{eqn:mv} we have
+	\begin{equation}
+	m\vec{v} = \sum_{i}\delta m(\vec{v}_{cg} + \vec{\omega}\times\vec{r_i}) = \left(\sum_{i}\delta m\right)\vec{v}_{cg} + \cancelto{0}{\vec{\omega}\times \sum_{i} \delta m \vec{r_i}}
+	\end{equation}
+	the last term can be canceled out since $\vec{r}$ is measured from the center of gravity, hence
+	\begin{equation}
+	m\vec{v} = m\vec{v}_{cg}
+	\end{equation}
+	same thing can be done with the angular momentum
+	\begin{equation}
+	H = \sum_{i}\vec{r_i}\times \left(\delta m\vec{v_i}\right)
+	\end{equation}
+	and by substituting \ref{eqn:relative} in the last equation we get
+	\begin{equation}
+	H = \cancelto{0}{\left(\sum_{i}\delta m\vec{r_i}\right)}\times\vec{v}_{cg} + \sum_{i}\delta m\left(\vec{r_i}\times \vec{\omega}\times\vec{r_i}\right)
+ 	\label{eqn:H}
+	\end{equation}
+	now since we are only concerned with motion in 2d plane, then the position vector of any point on the rover will be considered to be 
+	\[\vec{r_i} = \left(x_i,y_i\right)
+	\]
+	and the rotation will be only around the z axis (normal to the plane of motion)so
+	\[\vec{\omega} = \Omega \vec{k}
+	\]
+	so 
+	\begin{equation*}
+	\vec{\omega}\times\vec{r} = \begin{vmatrix}
+	\vec{i} & \vec{j} & \vec{k}\\0 & 0 & \Omega\\x& y& 0
+	\end{vmatrix} = -\Omega y\vec{i} + \Omega x\vec{j}
+	\end{equation*}
+	and
+	\begin{equation*}
+	\vec{r}\times\vec{\omega}\times\vec{r} = \begin{vmatrix}
+	\vec{i} & \vec{j} & \vec{k}\\x& y& 0\\-\Omega y\vec{i} & \Omega x\vec{j} & 0
+	\end{vmatrix} = \Omega\left(x^2+y^2\right)\vec{k}
+	\end{equation*}
+	then substituting the last equation into \ref{eqn:H}
+	\begin{equation}
+	H = \left(\sum_{i}\delta m_i(x_{i}^{2}+y_{i}^{2})\right)\Omega\vec{k}
+	\end{equation}
+	Now we define the moment of inertia around the z axis to be
+	\begin{equation*}
+	I_{zz} = \int_{m}(x^2 + y^2)dm
+	\end{equation*}
+	and in case of dealing with discrete lumps of mass this definition can be modified to 
+	\begin{equation*}
+	I_{zz} = \sum_{i}\delta m_i(x_{i}^{2}+y_{i}^{2})
+	\end{equation*}
+	thus the angular momentum equation can be written as
+	\begin{equation}
+	H = I_{zz}\Omega \vec{k}
+	\end{equation}
+	now applying newtons second law \ref{eqn:newton_second} we have
+	\begin{subequations}
+	\begin{equation}
+	F = \frac{d}{dt}\left(mv_{cg}\right) = m\frac{d}{dt}\vec{v}_{cg}
+	\end{equation}
+	\begin{equation}
+	M = \frac{d}{dt}H = \frac{d}{dt}I_{zz}\Omega\vec{k}
+	\end{equation}
+	\end{subequations}
+	at this point there is a problem, which is that the fact that the moment of inertia of the rover around its z axis $I_{zz}$ is depends on the orientation of the rover, as it is expressed with respect to an inertial frame of reference.
+	\paragraph{}To explain this further, in figure \ref{fig:rotate}, particle p has coordinates $(x_1,y_1)$, and when the body rotates, it has another coordinate $(x_2,y_2)$ and this goes for all other particles. This change in position means a change in the value of the moment of inertia. 
+	\begin{figure}[H]
+		\centering
+		\def\svgwidth{200pt}
+		\input{rotateAxes.pdf_tex}
+		\caption{The position of point P changes with respect to the inertial frame when the body rotates.}
+		\label{fig:rotate}
+	\end{figure}
+	\paragraph{}In order to remedy this, the equations of motion \ref{eqn:newton_second} written with respect to an inertial frame of reference, will be expressed in terms of components described in local body axes on the rover, using this transformation
+	\begin{equation}
+		\frac{d}{dt}\left.\vec{A}\right|_{inertial} = \frac{d}{dt}\left.\vec{A}\right|_{body} +\vec{\omega}\times\vec{A}
+	\end{equation}
+	where A is any vector. In our case we are willing to express the angular and linear momentum equations using components expressed in local axes, so for linear momentum equation we replace $A$ with $m\vec{v_{cg}}$ and for angular momentum equation we will replace $A$ with $H$, so
+	\begin{subequations}
+		\begin{equation}
+		m\frac{d}{dt}\left.\vec{v}_{cg}\right|_{inertial} = m\dot{\vec{v}}_{cg} + \vec{\omega}\times\vec{v}_{cg}	
+		\end{equation}
+		\begin{equation}
+		\frac{d}{dt}\left.H\right|_{inertial} = \frac{d}{dt}\left.H\right|_{body} = I_{zz}\dot{\Omega}\vec{k}
+		\end{equation}
+	\end{subequations}
+	and assuming that 
+	\[\vec{v}_{cg} = u\vec{e}_1+v\vec{e}_2
+	\]
+	where $e_1$ and $e_2$ are unit vectors in the directions of the local x and y axes of the rover, then 
+	\[\vec{\omega}\times\vec{v}_{cg} = \begin{vmatrix}
+	\vec{e}_1 &\vec{e}_2&\vec{k}\\0& 0& \Omega\\u& v& 0
+	\end{vmatrix} = -\Omega v\vec{e}_1 +\Omega u\vec{e}_2
+	\]
+	and 
+	\[\vec{\omega}\times\vec{H} = \begin{vmatrix}
+	\vec{e}_1 &\vec{e}_2&\vec{k}\\0& 0& \Omega\\0& 0& I_{zz}\Omega
+	\end{vmatrix} =0 
+	\]
+	so the equations of motion describing forces and moments for the rover are
+	\begin{subequations}
+		\begin{equation}
+		m_r\left(\dot{u} -\Omega v\right) = F_x
+		\end{equation}
+		\begin{equation}
+		m_r\left(\dot{v} + \Omega u\right) = F_y
+		\end{equation}
+		\begin{equation}
+		I_{zz}\dot{\Omega} = M
+		\end{equation}
+		\label{eqn:EOM_Raw}
+	\end{subequations}
+	where $F_x$,$F_y$ and $M$ are the forces and the moments acting on the rover as expressed in body axes.
+	\subsection{Forces acting on the rover}
+	Equation \ref{eqn:EOM_Raw} simply describes how the body will respond when acted upon by certain forces. Now we need to describe the forces that act on the rover. Basically, there are two main kinds of acting forces:
+	\begin{itemize}
+		\item Pulling force coming from wheels.
+		\item Friction force caused by rear wheel.
+	\end{itemize}
+	These forces are described in the free body diagram in figure \ref{fig:fbd}.
+	\begin{figure}[H]
+		\centering
+		\def\svgwidth{200pt}
+		\input{fbd.pdf_tex}
+		\caption{Rover top view and axes used}
+		\label{fig:fbd}
+	\end{figure}
+	thus the equations of motion should be modified to be
+	\begin{subequations}
+		\begin{equation}
+		m_r\left(\dot{u} -\Omega v\right) = P_1 + P_2
+		\end{equation}
+		\begin{equation}
+		m_r\left(\dot{v} + \Omega u\right) = F_y
+		\end{equation}
+		\begin{equation}
+		I_{zz}\dot{\Omega} = P_1 a - P_2 b
+		\end{equation}
+		\label{eqn:EOM_mod}
+	\end{subequations}
+	\subsubsection{Pulling forces from the wheels}
+	The main force that acts on the rover is the pulling force caused by wheel rotation. In order to incorporate this into our model, we start by drawing a free body diagram describing the forces acting on the wheel.
+	\begin{figure}[H]
+		\centering
+		\def\svgwidth{150pt}
+		\input{wheel.pdf_tex}
+		\caption{Forces acting on the wheel}
+		\label{fig:wheel}
+	\end{figure}
+	and then we have to write the equations of motion: the force equation in x and y directions as well as the moment equation around the center of gravity
+	\begin{subequations}
+		\begin{equation}
+		m\ddot{x} = -F-P
+		\label{eqn:xwheel}
+		\end{equation}
+		\begin{equation}
+		m\ddot{y} = N - mg 
+		\label{eqn:ywheel}
+		\end{equation}
+		\begin{equation}
+		I\ddot{\theta} = T +Fr
+		\label{eqn:rotwheel}
+		\end{equation}
+	\end{subequations}
+	where P is the pulling force from the rover, F is the friction with the ground and T is the torque from the motor. Since the wheel doesn't move in the y direction, equation \ref{eqn:ywheel} can be written as
+	\[N = mg
+	\]Assuming that the rotation is pure rolling without slipping, this means that the velocity of the contact point between the wheel and the ground is zero or
+	\begin{equation*}
+	\dot{x} - r\dot{\theta} = 0 \Rightarrow \dot{x} = r\dot{\theta}
+	\end{equation*}
+	differentiating with respect to time we get
+	\begin{equation}
+	\ddot{x} = r\ddot{\theta}
+	\end{equation}
+	plugging the last equation in \ref{eqn:xwheel} we get
+	\begin{equation}
+	mr\ddot{\theta} = -F-P \Rightarrow F = -P-mr\ddot{\theta}
+	\label{eqn:inter1}
+	\end{equation}
+	then substituting F in \ref{eqn:rotwheel} with that from \ref{eqn:inter1} we get
+	\begin{equation}
+	\left(I + mr^2\right)\ddot{\theta} = T-Pr
+	\end{equation}
+	 Now the value of P is unknown because it depends on how strong is the pull from the rover on the wheel, hence depends on the dynamics of the rover itself. 
+	 
+	 \paragraph{}To solve this issue we have to plug the pulling force of each wheel, as a function of the exerted torque and the wheel center's speed, into the dynamics of the rover itself to describe the effect of motor torques on the dynamics of the rover, which is basically what we are interested in. The pulling force acting on each wheel can then be expressed as
+	 \begin{equation}
+	 \begin{split}
+	  P=\frac{T}{r}-\left(\frac{I}{r^2} + m\right)\ddot{x}&\\\Rightarrow P=\frac{T}{r}-\left(\frac{I}{r^2} + m\right)\dot{u}
+	 \end{split}
+	 \label{eqn:wheelpull}
+	 \end{equation}
+	 where $u$ is the speed of the wheel's center. Now if we plug the pulling force of the two wheels into equations \ref{eqn:EOM_mod} we obtain
+	 \begin{subequations}
+	 	\begin{equation}
+	 	m_r\left(\dot{u} - \Omega v\right) = \left(\frac{T_1}{r_1}+\frac{T_2}{r_2}\right) - \left(\frac{I_1}{r_{1}^{2}}+m_1\right)\dot{u}_1- \left(\frac{I_2}{r_{2}^{2}}+m_2\right)\dot{u}_2
+	 	\end{equation}
+	 	\begin{equation}
+	 	m_r\left(\dot{v} + \Omega u\right) = F_y
+	 	\end{equation}
+	 	\begin{equation}
+	 	I_{zz}\dot{\Omega} = \left(\frac{a}{r_1}T_1-\frac{b}{r_2}T_2\right) - a\left(\frac{I_1}{r_{1}^{2}}+m_1\right)\dot{u}_1+ b\left(\frac{I_2}{r_{2}^{2}}+m_2\right)\dot{u}_2
+	 	\end{equation}
+	 	\label{eqn:k1}
+	 \end{subequations}
+	 Now we have 3 equations in 5 variables ( $\Omega,u,v,u_1$ and $u_2$). We have to introduce two extra equations to balance the number of equations and unknowns. We can simply use the kinematic relations
+	 \begin{subequations}
+	 	\begin{equation}
+	 	u = \frac{u_1+u_2}{2}
+	 	\end{equation}
+	 	\begin{equation}
+	 	\Omega = \frac{u_1 - u_2}{L}
+	 	\end{equation}
+	 	\label{eqn:kinematics}
+	 \end{subequations}
+	 where $L = a+b$ in figure \ref{fig:topView}. Since equation \ref{eqn:kinematics} is not a vector equation, it can be differentiated easily to get
+	 \begin{subequations}
+	 	\begin{equation*}
+	 	\dot{u} = \frac{\dot{u_1}+\dot{u_2}}{2}
+	 	\end{equation*}
+	 	\begin{equation*}
+	 	\dot{\Omega} = \frac{\dot{u_1} - \dot{u_2}}{L}
+	 	\end{equation*}
+	 \end{subequations}
+	 and with simple algebraic manipulation we get
+	 \begin{subequations}
+	 	\begin{equation}
+	 	\dot{u}_1 = \dot{u} + \frac{L}{2}\dot{\Omega}
+	 	\end{equation}
+	 	\begin{equation}
+	 	\dot{u}_2 = \dot{u} - \frac{L}{2}\dot{\Omega}
+	 	\end{equation}
+	 	\label{eqn:k2}
+	 \end{subequations}
+%	 so the pulling forces due to the two wheels become
+%	 \begin{subequations}	
+%	 	\begin{equation}
+%	 	P_1 = \frac{T_1}{r_1}-\left(\frac{I_1}{r_{1}^{2}} + m_1\right)\dot{u} - \left(\frac{I_1}{r_{1}^{2}} + m_1\right)\frac{L}{2}\dot{\Omega}
+%	 	\end{equation}	
+%	 	\begin{equation}
+%	 	P_2 = \frac{T_2}{r_2}-\left(\frac{I_2}{r_{2}^{2}} + m_2\right)\dot{u} + \left(\frac{I_2}{r_{2}^{2}} + m_2\right)\frac{L}{2}\dot{\Omega}
+%	 	\end{equation}
+%	 	\label{eqn:newPull}
+%	 \end{subequations}
+	 then plugging the result from equation  \ref{eqn:k2} into equation \ref{eqn:k1} we get
+	 \begin{subequations}
+	 	\begin{equation}
+	 	\left[m_r+\left(m_1+m_2+\frac{I_1}{r_{1}^{2}}+\frac{I_2}{r_{2}^{2}}\right)\right]\dot{u} + \frac{L}{2}\left[m_1+\frac{I_1}{r_{1}^{2}}-m_2-\frac{I_2}{r_{2}^{2}}\right]\dot{\Omega} = \frac{T_1}{r_1}+\frac{T_2}{r_2}+m_r\Omega v
+	 	\end{equation}
+	 	\begin{equation}
+	 	m_r\left(\dot{v}-\Omega u\right) = F_y
+	 	\end{equation}
+	 	\begin{equation}
+	 	\left[am_1+\frac{aI_1}{r_{1}^{2}}-bm_2-\frac{bI_2}{r_{2}^{2}}\right]\dot{u}+\left[\frac{L}{2}\left(am_1+\frac{aI_1}{r_{1}^{2}}+bm_2+\frac{bI_2}{r_{2}^{2}}\right)+I_{zz}\right]\dot{\Omega} =\frac{a}{r_1}T_1-\frac{b}{r_2}T_2
+	 	\end{equation}
+	 	\label{eqn:EOM_long}
+	 \end{subequations}
+	 equation \ref{eqn:EOM_long} can be written in a shorthand form as 
+	 \begin{subequations}
+	 	\begin{equation}
+	 	\begin{bmatrix}
+	 	\beta_{11} & \beta_{12}\\\beta_{21}&\beta_{22}
+	 	\end{bmatrix}\begin{bmatrix}
+	 	\dot{u}\\\dot{\Omega}
+	 	\end{bmatrix} = \begin{bmatrix}
+	 	\frac{T_1}{r_1}+\frac{T_2}{r_2}+m_r\Omega v\\\frac{a}{r_1}T_1-\frac{b}{r_2}T_2
+	 	\end{bmatrix}
+	 	\end{equation}
+	 	\begin{equation}
+		m_r\left(\dot{v}+\Omega u\right) = F_y
+	 	\end{equation}
+	 	\label{eqn:shorthand}
+	 \end{subequations}
+	 \subsubsection{Friction force from rear wheel}
+	 Assuming that the rear wheel friction is of viscous friction type, so it can be assumed that the friction force takes the following form 
+	 \begin{equation}
+	 F_d = -c\vec{v}_w
+	 \label{eqn:friction}
+	 \end{equation}
+	 
+	 where c is the viscous damping coefficient and $v_w$ is the velocity at the rear wheel point. The velocity of rear wheel point can then be expressed as 
+	 \begin{equation}
+	 \vec{v}_w = \vec{v}_cg + \vec{\omega}\times\vec{r}
+	 \label{eqn:rear1}
+	 \end{equation}
+	 where $r$ is the position vector of the rear wheel point with respect to the center of gravity. The cross product term is then
+	 \begin{equation}
+	 \vec{\omega}\times\vec{r} = \left(\Omega\vec{k}\right)\times\left(-\gamma\vec{e}_1\right) =- \Omega\gamma \vec{e}_2
+	 \label{eqn:cross_rear}
+	 \end{equation}
+	 then plugging equations \ref{eqn:cross_rear}and\ref{eqn:rear1} into equation \ref{eqn:friction} we get an expression for the friction force
+	 \begin{subequations}
+	 	\begin{equation}
+	 	F_{d_{x}} = -cu
+		\end{equation}
+		\begin{equation}
+		F_{d_{y}} = -cv+c\gamma\Omega
+		\end{equation}
+		\label{eqn:friction2}
+	 \end{subequations}
+	 then plugging equation\ref{eqn:friction2} into equation \ref{eqn:shorthand} we obtain
+	 \begin{subequations}
+	 	\begin{equation}
+	 	\begin{bmatrix}
+	 	\beta_{11} & \beta_{12}\\\beta_{21}&\beta_{22}
+	 	\end{bmatrix}\begin{bmatrix}
+	 	\dot{u}\\\dot{\Omega}
+	 	\end{bmatrix} = \begin{bmatrix}
+	 	\frac{T_1}{r_1}+\frac{T_2}{r_2}+m_rv\Omega-cu \\\frac{a}{r_1}T_1-\frac{b}{r_2}T_2-c\gamma\left(\gamma\Omega-v\right)
+	 	\end{bmatrix}
+	 	\end{equation}
+	 	\begin{equation}
+	 	m_r\left(\dot{v}+\Omega u\right) = -cv+c\gamma\Omega
+	 	\end{equation}
+	 	\label{eqn:shorthand2}
+	 \end{subequations}
+	 
+	 \subsection{Describing the torques further}
+	 In equation \ref{eqn:shorthand2}, we expressed how the states of the rover will change with applying wheel torques $T_1$ and $T_2$. However, the real input is the voltage to the motors that produce that torque. So we need an expression that describes how much torque the motor produces when given certain voltage input. For this end, a simple brushed dc motor model is adopted and depicted in figure \ref{fig:motor}
+	 \begin{figure}[H]
+	 	\centering
+	 	\def\svgwidth{350pt}
+	 	\input{motorModel.pdf_tex}
+	 	\caption{Simple motor model}
+	 	\label{fig:motor}
+	 \end{figure}
+	 where
+	 \begin{itemize}
+	 	\item R is the motor coil resistance.
+	 	\item L is the motor coil inductance.
+	 	\item $c_m$ is the motor's shaft viscous damping coefficient.
+	 	\item J is the motor armature inertia.
+	 \end{itemize}
+	 To find an expression for the torque, we start be calculating the current in the electric portion of the motor. 
+	 \begin{subequations}
+	 	\begin{equation}
+	 v_{in} = Ri + L\frac{di}{dt}+k_{\omega}\omega\Rightarrow \frac{di}{dt} = \frac{1}{L}\left(v_{in}-Ri-k_{\omega}\omega\right)
+	 \end{equation}
+	 \begin{equation}
+	 T = K_t i
+	 \end{equation}
+	 \end{subequations}
+	 where $\omega$ is the rotational speed of the motor shaft, $K_{\omega}$ is the back emf coupling coefficient. and $K_t$ is the motor's torque constant. 
+	 
+	 \paragraph{}The wheel rotational speed can be expressed as a function of the rover's angular and linear speeds by virtue of pure rolling. For example, for wheel 1  
+	 \begin{equation}
+	 \omega = \frac{u_1}{r} = \frac{1}{r}\left(u+\frac{\Omega L}{2}\right)
+	 \end{equation}
+	 
+\end{document}

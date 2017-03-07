@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="354.33069"
+   height="354.33069"
+   id="svg6659"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="rotateAxes.pdf">
+  <defs
+     id="defs3">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path4300"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path4297"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="223.07344"
+     inkscape:cy="299.03338"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="mm" />
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-698.03148)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect6665"
+       width="217.14285"
+       height="275.71429"
+       x="67.14286"
+       y="739.50507" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.77165353;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-mid:none"
+       d="m 177.14286,699.50504 0,188.57143"
+       id="path7175"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.77165353;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Mend)"
+       d="m 175.71429,886.93362 182.85714,0"
+       id="path7541"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7913"
+       width="15.657365"
+       height="17.172594"
+       x="216.97508"
+       y="802.8783" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01194882px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 177.5851,887.72511 41.90939,-69.68859"
+       id="path7915"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;stroke:#fc0000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect6665-4"
+       width="217.14285"
+       height="275.71429"
+       x="476.23083"
+       y="539.29211"
+       transform="matrix(0.86951371,0.4939088,-0.4939088,0.86951371,0,0)" />
+    <rect
+       style="fill:#fb0000;fill-opacity:1;stroke:#fc0000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7935"
+       width="18.182745"
+       height="18.182745"
+       x="626.72357"
+       y="600.37769"
+       transform="matrix(0.86951371,0.4939088,-0.4939088,0.86951371,0,0)" />
+    <path
+       style="fill:none;stroke:#f80000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 179.09436,883.69047 70.71068,-35.35534"
+       id="path7951"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7953"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-167.38796,678.84627)"><flowRegion
+         id="flowRegion7955"><rect
+           id="rect7957"
+           width="135.36044"
+           height="36.36549"
+           x="359.61432"
+           y="102.81879" /></flowRegion><flowPara
+         id="flowPara7959">$(x_1,y_1)$</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7953-9"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#f80000;font-family:Sans;stroke-opacity:1"
+       transform="translate(-117.83091,710.61489)"><flowRegion
+         id="flowRegion7955-4"><rect
+           id="rect7957-6"
+           width="135.36044"
+           height="36.36549"
+           x="359.61432"
+           y="102.81879"
+           style="stroke:#f80000;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara7959-0">$(x_2,y_2)$</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7988"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(12.626907,700.05179)"><flowRegion
+         id="flowRegion7990"><rect
+           id="rect7992"
+           width="30.304577"
+           height="22.223356"
+           x="184.35284"
+           y="103.81286" /></flowRegion><flowPara
+         id="flowPara7994">P</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7988-3"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#f30000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(41.921663,732.73339)"><flowRegion
+         id="flowRegion7990-6"><rect
+           id="rect7992-2"
+           width="30.304577"
+           height="22.223356"
+           x="184.35284"
+           y="103.81286"
+           style="fill:#f30000;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara7994-4">P</flowPara></flowRoot>  </g>
+</svg>
