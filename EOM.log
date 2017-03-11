@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.29)  2 MAR 2017 10:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.29)  8 MAR 2017 09:15
 entering extended mode
 **EOM.tex
 ("D:\masters\Documentation\Equation of motion\EOM.tex"
@@ -195,59 +195,50 @@ File: rotateAxes.pdf Graphic file (type pdf)
 Package pdftex.def Info: rotateAxes.pdf used on input line 52.
 (pdftex.def)             Requested size: 200.0pt x 200.00581pt.
 )
-[3 <D:/masters/Documentation/Equation of motion/rotateAxes.pdf>]
+[3] [4 <D:/masters/Documentation/Equation of motion/rotateAxes.pdf>]
 ("D:\masters\Documentation\Equation of motion\fbd.pdf_tex"
-<fbd.pdf, id=26, 341.43306pt x 341.43306pt>
+<fbd.pdf, id=29, 341.43306pt x 341.43306pt>
 File: fbd.pdf Graphic file (type pdf)
  <use fbd.pdf>
 Package pdftex.def Info: fbd.pdf used on input line 52.
 (pdftex.def)             Requested size: 200.0pt x 200.00583pt.
-) [4]
+) [5 <D:/masters/Documentation/Equation of motion/fbd.pdf>]
 ("D:\masters\Documentation\Equation of motion\wheel.pdf_tex"
-<wheel.pdf, id=30, 227.62204pt x 227.62204pt>
+<wheel.pdf, id=35, 227.62204pt x 170.71654pt>
 File: wheel.pdf Graphic file (type pdf)
  <use wheel.pdf>
 Package pdftex.def Info: wheel.pdf used on input line 52.
-(pdftex.def)             Requested size: 150.0pt x 150.00523pt.
-) [5 <D:/masters/Documentation/Equation of motion/fbd.pdf>] [6 <D:/masters/Docu
-mentation/Equation of motion/wheel.pdf>]
-Overfull \hbox (4.27913pt too wide) detected at line 290
-[] [] \OT1/cmr/m/n/10 + [] [] [] = [] + [] + \OML/cmm/m/it/10 m[]\OT1/cmr/m/n/1
-0 
-\OML/cmm/m/it/10 v
- []
+(pdftex.def)             Requested size: 200.0pt x 150.00697pt.
+) [6 <D:/masters/Documentation/Equation of motion/wheel.pdf>] [7] [8] [9]
 
+LaTeX Warning: Reference `eqn:shorthand' on page 10 undefined on input line 397
+.
 
-Overfull \hbox (25.49902pt too wide) detected at line 296
-[] [] \OT1/cmr/m/n/10 + [] [] = []\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10   []\OM
-L/cmm/m/it/10 T[]
- []
-
-[7] ("D:\masters\Documentation\Equation of motion\motorModel.pdf_tex"
-<motorModel.pdf, id=45, 426.79132pt x 199.1693pt>
+("D:\masters\Documentation\Equation of motion\motorModel.pdf_tex"
+<motorModel.pdf, id=51, 426.79132pt x 199.1693pt>
 File: motorModel.pdf Graphic file (type pdf)
  <use motorModel.pdf>
 Package pdftex.def Info: motorModel.pdf used on input line 52.
 (pdftex.def)             Requested size: 350.0pt x 163.33505pt.
 )
-Overfull \hbox (5.0pt too wide) in paragraph at lines 59--365
+Overfull \hbox (5.0pt too wide) in paragraph at lines 59--420
  [][] 
  []
 
-[8] [9 <D:/masters/Documentation/Equation of motion/motorModel.pdf>]
+[10] [11 <D:/masters/Documentation/Equation of motion/motorModel.pdf>]
 ("D:\masters\Documentation\Equation of motion\EOM.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1924 strings out of 493921
- 25122 string characters out of 3144861
- 85834 words of memory out of 3000000
- 5219 multiletter control sequences out of 15000+200000
+ 1933 strings out of 493921
+ 25258 string characters out of 3144861
+ 88916 words of memory out of 3000000
+ 5228 multiletter control sequences out of 15000+200000
  5612 words of font info for 21 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,16n,25p,444b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,17n,25p,456b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
@@ -255,13 +246,12 @@ Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb>
-Output written on EOM.pdf (9 pages, 152087 bytes).
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb>
+Output written on EOM.pdf (11 pages, 151215 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

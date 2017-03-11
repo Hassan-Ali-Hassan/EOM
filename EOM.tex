@@ -12,6 +12,8 @@
 	\subsection*{assumptions}
 	\begin{itemize}
 		\item The rolling of the wheels is assumed to be pure rolling without slipping.
+		\item The rover weight is considered to be light enough to consider the wheel rigid.
+		\item The coefficient of static friction between the wheels and the ground is assumed to be high enough to guarantee pure rolling.
 		\item The rear wheel friction is assumed to be damped friction. 
 		\item The axes are taken in the way described in figure \ref{fig:topView}
 	\end{itemize}
@@ -26,10 +28,10 @@
 	The basic concept of the derivation is to apply Newton's second law for linear and angular motions.
 	\begin{subequations}
 	\begin{equation}
-	F = \frac{d}{dt}\left(mv\right)
+	\sum F = \frac{d}{dt}\left(mv\right)
 	\end{equation} 
 	\begin{equation}
-	M = \frac{d}{dt} H
+	\sum M = \frac{d}{dt} H
 	\end{equation}
 	\label{eqn:newton_second}
 	\end{subequations}
@@ -55,7 +57,7 @@
 	\begin{equation}
 	H = \sum_{i}\vec{r_i}\times \left(\delta m\vec{v_i}\right)
 	\end{equation}
-	and by substituting \ref{eqn:relative} in the last equation we get
+	and by substituting (\ref{eqn:relative}) in the last equation we get
 	\begin{equation}
 	H = \cancelto{0}{\left(\sum_{i}\delta m\vec{r_i}\right)}\times\vec{v}_{cg} + \sum_{i}\delta m\left(\vec{r_i}\times \vec{\omega}\times\vec{r_i}\right)
  	\label{eqn:H}
@@ -78,7 +80,7 @@
 	\vec{i} & \vec{j} & \vec{k}\\x& y& 0\\-\Omega y\vec{i} & \Omega x\vec{j} & 0
 	\end{vmatrix} = \Omega\left(x^2+y^2\right)\vec{k}
 	\end{equation*}
-	then substituting the last equation into \ref{eqn:H}
+	then substituting the last equation into (\ref{eqn:H})
 	\begin{equation}
 	H = \left(\sum_{i}\delta m_i(x_{i}^{2}+y_{i}^{2})\right)\Omega\vec{k}
 	\end{equation}
@@ -94,17 +96,17 @@
 	\begin{equation}
 	H = I_{zz}\Omega \vec{k}
 	\end{equation}
-	now applying newtons second law \ref{eqn:newton_second} we have
+	now applying newtons second law (\ref{eqn:newton_second}) we have
 	\begin{subequations}
 	\begin{equation}
-	F = \frac{d}{dt}\left(mv_{cg}\right) = m\frac{d}{dt}\vec{v}_{cg}
+	\sum F = \frac{d}{dt}\left(mv_{cg}\right) = m\frac{d}{dt}\vec{v}_{cg}
 	\end{equation}
 	\begin{equation}
-	M = \frac{d}{dt}H = \frac{d}{dt}I_{zz}\Omega\vec{k}
+	\sum M = \frac{d}{dt}H = \frac{d}{dt}I_{zz}\Omega\vec{k}
 	\end{equation}
 	\end{subequations}
 	at this point there is a problem, which is that the fact that the moment of inertia of the rover around its z axis $I_{zz}$ is depends on the orientation of the rover, as it is expressed with respect to an inertial frame of reference.
-	\paragraph{}To explain this further, in figure \ref{fig:rotate}, particle p has coordinates $(x_1,y_1)$, and when the body rotates, it has another coordinate $(x_2,y_2)$ and this goes for all other particles. This change in position means a change in the value of the moment of inertia. 
+	\paragraph{}To explain this further, in figure (\ref{fig:rotate}), particle p has coordinates $(x_1,y_1)$, and when the body rotates, it has another coordinate $(x_2,y_2)$ and this goes for all other particles. This change in position means a change in the value of the moment of inertia. 
 	\begin{figure}[H]
 		\centering
 		\def\svgwidth{200pt}
@@ -112,7 +114,7 @@
 		\caption{The position of point P changes with respect to the inertial frame when the body rotates.}
 		\label{fig:rotate}
 	\end{figure}
-	\paragraph{}In order to remedy this, the equations of motion \ref{eqn:newton_second} written with respect to an inertial frame of reference, will be expressed in terms of components described in local body axes on the rover, using this transformation
+	\paragraph{}In order to remedy this, the equations of motion (\ref{eqn:newton_second}) written with respect to an inertial frame of reference, will be expressed in terms of components described in local body axes on the rover, using this transformation
 	\begin{equation}
 		\frac{d}{dt}\left.\vec{A}\right|_{inertial} = \frac{d}{dt}\left.\vec{A}\right|_{body} +\vec{\omega}\times\vec{A}
 	\end{equation}
@@ -153,7 +155,7 @@
 	\end{subequations}
 	where $F_x$,$F_y$ and $M$ are the forces and the moments acting on the rover as expressed in body axes.
 	\subsection{Forces acting on the rover}
-	Equation \ref{eqn:EOM_Raw} simply describes how the body will respond when acted upon by certain forces. Now we need to describe the forces that act on the rover. Basically, there are two main kinds of acting forces:
+	Equation (\ref{eqn:EOM_Raw}) simply describes how the body will respond when acted upon by certain forces. Now we need to describe the forces that act on the rover. Basically, there are two main kinds of acting forces:
 	\begin{itemize}
 		\item Pulling force coming from wheels.
 		\item Friction force caused by rear wheel.
@@ -180,10 +182,11 @@
 		\label{eqn:EOM_mod}
 	\end{subequations}
 	\subsubsection{Pulling forces from the wheels}
-	The main force that acts on the rover is the pulling force caused by wheel rotation. In order to incorporate this into our model, we start by drawing a free body diagram describing the forces acting on the wheel.
+	 When the driving torque from the motor acts on the wheel, it causes the wheel to rotate. The friction between the wheel and the ground during this rotation is the main reason behind the pulling force the wheels act on the rover.
+	 In order to incorporate this into our model, we start by drawing a free body diagram describing the forces acting on the wheel.
 	\begin{figure}[H]
 		\centering
-		\def\svgwidth{150pt}
+		\def\svgwidth{200pt}
 		\input{wheel.pdf_tex}
 		\caption{Forces acting on the wheel}
 		\label{fig:wheel}
@@ -191,127 +194,179 @@
 	and then we have to write the equations of motion: the force equation in x and y directions as well as the moment equation around the center of gravity
 	\begin{subequations}
 		\begin{equation}
-		m\ddot{x} = -F-P
+		m\ddot{x} = F-P
 		\label{eqn:xwheel}
 		\end{equation}
 		\begin{equation}
-		m\ddot{y} = N - mg 
+		m\ddot{y} = N - mg - Q 
 		\label{eqn:ywheel}
 		\end{equation}
 		\begin{equation}
-		I\ddot{\theta} = T +Fr
+		I\ddot{\theta} = T -Fr
 		\label{eqn:rotwheel}
 		\end{equation}
+		\label{eqn:wheel_eom}
 	\end{subequations}
-	where P is the pulling force from the rover, F is the friction with the ground and T is the torque from the motor. Since the wheel doesn't move in the y direction, equation \ref{eqn:ywheel} can be written as
-	\[N = mg
-	\]Assuming that the rotation is pure rolling without slipping, this means that the velocity of the contact point between the wheel and the ground is zero or
-	\begin{equation*}
-	\dot{x} - r\dot{\theta} = 0 \Rightarrow \dot{x} = r\dot{\theta}
-	\end{equation*}
-	differentiating with respect to time we get
+	where P is the pulling force from the rover, F is the friction with the ground, T is the torque from the motor,Q is the vertical reaction force from the rover on the wheel, I is the wheel's moment of inertia around its center and r is the wheel radius. 
+	
+	We have also the pure rolling assumption assumed earlier. This condition supplies us with an extra equation
 	\begin{equation}
-	\ddot{x} = r\ddot{\theta}
+	v = r\omega \Rightarrow a = r\alpha \Rightarrow \ddot{x} = r\ddot{\theta}
+	\label{eqn:pure_roll_cond}
 	\end{equation}
-	plugging the last equation in \ref{eqn:xwheel} we get
+	Now we can check the total number of unknowns and available equations for thw whole system (the rover and the wheels) and make sure they are equal to each other. The unknowns of the whole system are 
+	\[\ddot{x}_1,\ddot{y}_1,\ddot{\theta}_1,P_1,F_1,\ddot{x}_2,\ddot{y}_2,\ddot{\theta}_2,P_2,F_2,\dot{u},\dot{v},\dot{\Omega}
+	\]
+	so we have 13 unknowns. The number of available equations is 11 equations which are: equations (\ref{eqn:wheel_eom}) along with equation (\ref{eqn:pure_roll_cond}) for each wheel, which gives 8 equations, equations (\ref{eqn:EOM_mod}) which are 3 equations. Two extra equations have to be used so the number of equations is equal to the number of unknowns. These extra relations can be derived from the kinematic constraints
+	\begin{subequations}
+		\begin{equation}
+		u = \frac{\dot{x}_1+\dot{x}_2}{2}
+		\end{equation}
+		\begin{equation}
+		\Omega = \frac{\dot{x}_1 - \dot{x}_2}{L}
+		\end{equation}
+	\end{subequations}
+	where $\dot{x}_1$ is the speed of the center of the right wheel, and $\dot{x}_2$ is the speed of the center of the left wheel. Since that last equation is a scalar equation, it can be differentiated and manipulated easily to give
+	\begin{subequations}
+		\begin{equation}
+		\ddot{x}_1 = \dot{u} + \frac{L}{2}\dot{\Omega}
+		\label{eqn:kinematic1}
+		\end{equation}
+		\begin{equation}
+		\ddot{x}_2 = \dot{u} - \frac{L}{2}\dot{\Omega}
+		\label{eqn:kinematic2}
+		\end{equation}
+		\label{eqn:kinematic_condition}
+	\end{subequations}
+	So by adding equations(\ref{eqn:kinematic_condition}) to the set of equations we already have, we have then 13 equations in 13 unknowns, so the system can be solved. 
+	\paragraph{}To solve the system, we can start by substituting the pure rolling kinematic constraint into the wheel equation (\ref{eqn:xwheel})
 	\begin{equation}
-	mr\ddot{\theta} = -F-P \Rightarrow F = -P-mr\ddot{\theta}
-	\label{eqn:inter1}
+	mr\ddot{\theta}  = F - p \Rightarrow \ddot{\theta} = \frac{F-P}{mr}
+	\label{eqn:a}
 	\end{equation}
-	then substituting F in \ref{eqn:rotwheel} with that from \ref{eqn:inter1} we get
+	then substituting equation (\ref{eqn:a}) into equation (\ref{eqn:rotwheel}) to get
 	\begin{equation}
-	\left(I + mr^2\right)\ddot{\theta} = T-Pr
+	\frac{I}{mr}\left(F-P\right) = T - Fr \Rightarrow P = KF - \frac{mr}{I}T
+	\label{eqn:b}
 	\end{equation}
-	 Now the value of P is unknown because it depends on how strong is the pull from the rover on the wheel, hence depends on the dynamics of the rover itself. 
-	 
-	 \paragraph{}To solve this issue we have to plug the pulling force of each wheel, as a function of the exerted torque and the wheel center's speed, into the dynamics of the rover itself to describe the effect of motor torques on the dynamics of the rover, which is basically what we are interested in. The pulling force acting on each wheel can then be expressed as
-	 \begin{equation}
-	 \begin{split}
-	  P=\frac{T}{r}-\left(\frac{I}{r^2} + m\right)\ddot{x}&\\\Rightarrow P=\frac{T}{r}-\left(\frac{I}{r^2} + m\right)\dot{u}
-	 \end{split}
-	 \label{eqn:wheelpull}
-	 \end{equation}
-	 where $u$ is the speed of the wheel's center. Now if we plug the pulling force of the two wheels into equations \ref{eqn:EOM_mod} we obtain
-	 \begin{subequations}
-	 	\begin{equation}
-	 	m_r\left(\dot{u} - \Omega v\right) = \left(\frac{T_1}{r_1}+\frac{T_2}{r_2}\right) - \left(\frac{I_1}{r_{1}^{2}}+m_1\right)\dot{u}_1- \left(\frac{I_2}{r_{2}^{2}}+m_2\right)\dot{u}_2
-	 	\end{equation}
-	 	\begin{equation}
-	 	m_r\left(\dot{v} + \Omega u\right) = F_y
-	 	\end{equation}
-	 	\begin{equation}
-	 	I_{zz}\dot{\Omega} = \left(\frac{a}{r_1}T_1-\frac{b}{r_2}T_2\right) - a\left(\frac{I_1}{r_{1}^{2}}+m_1\right)\dot{u}_1+ b\left(\frac{I_2}{r_{2}^{2}}+m_2\right)\dot{u}_2
-	 	\end{equation}
-	 	\label{eqn:k1}
-	 \end{subequations}
-	 Now we have 3 equations in 5 variables ( $\Omega,u,v,u_1$ and $u_2$). We have to introduce two extra equations to balance the number of equations and unknowns. We can simply use the kinematic relations
-	 \begin{subequations}
-	 	\begin{equation}
-	 	u = \frac{u_1+u_2}{2}
-	 	\end{equation}
-	 	\begin{equation}
-	 	\Omega = \frac{u_1 - u_2}{L}
-	 	\end{equation}
-	 	\label{eqn:kinematics}
-	 \end{subequations}
-	 where $L = a+b$ in figure \ref{fig:topView}. Since equation \ref{eqn:kinematics} is not a vector equation, it can be differentiated easily to get
-	 \begin{subequations}
-	 	\begin{equation*}
-	 	\dot{u} = \frac{\dot{u_1}+\dot{u_2}}{2}
-	 	\end{equation*}
-	 	\begin{equation*}
-	 	\dot{\Omega} = \frac{\dot{u_1} - \dot{u_2}}{L}
-	 	\end{equation*}
-	 \end{subequations}
-	 and with simple algebraic manipulation we get
-	 \begin{subequations}
-	 	\begin{equation}
-	 	\dot{u}_1 = \dot{u} + \frac{L}{2}\dot{\Omega}
-	 	\end{equation}
-	 	\begin{equation}
-	 	\dot{u}_2 = \dot{u} - \frac{L}{2}\dot{\Omega}
-	 	\end{equation}
-	 	\label{eqn:k2}
-	 \end{subequations}
-%	 so the pulling forces due to the two wheels become
-%	 \begin{subequations}	
-%	 	\begin{equation}
-%	 	P_1 = \frac{T_1}{r_1}-\left(\frac{I_1}{r_{1}^{2}} + m_1\right)\dot{u} - \left(\frac{I_1}{r_{1}^{2}} + m_1\right)\frac{L}{2}\dot{\Omega}
-%	 	\end{equation}	
-%	 	\begin{equation}
-%	 	P_2 = \frac{T_2}{r_2}-\left(\frac{I_2}{r_{2}^{2}} + m_2\right)\dot{u} + \left(\frac{I_2}{r_{2}^{2}} + m_2\right)\frac{L}{2}\dot{\Omega}
-%	 	\end{equation}
-%	 	\label{eqn:newPull}
-%	 \end{subequations}
-	 then plugging the result from equation  \ref{eqn:k2} into equation \ref{eqn:k1} we get
-	 \begin{subequations}
-	 	\begin{equation}
-	 	\left[m_r+\left(m_1+m_2+\frac{I_1}{r_{1}^{2}}+\frac{I_2}{r_{2}^{2}}\right)\right]\dot{u} + \frac{L}{2}\left[m_1+\frac{I_1}{r_{1}^{2}}-m_2-\frac{I_2}{r_{2}^{2}}\right]\dot{\Omega} = \frac{T_1}{r_1}+\frac{T_2}{r_2}+m_r\Omega v
-	 	\end{equation}
-	 	\begin{equation}
-	 	m_r\left(\dot{v}-\Omega u\right) = F_y
-	 	\end{equation}
-	 	\begin{equation}
-	 	\left[am_1+\frac{aI_1}{r_{1}^{2}}-bm_2-\frac{bI_2}{r_{2}^{2}}\right]\dot{u}+\left[\frac{L}{2}\left(am_1+\frac{aI_1}{r_{1}^{2}}+bm_2+\frac{bI_2}{r_{2}^{2}}\right)+I_{zz}\right]\dot{\Omega} =\frac{a}{r_1}T_1-\frac{b}{r_2}T_2
-	 	\end{equation}
-	 	\label{eqn:EOM_long}
-	 \end{subequations}
-	 equation \ref{eqn:EOM_long} can be written in a shorthand form as 
-	 \begin{subequations}
-	 	\begin{equation}
-	 	\begin{bmatrix}
-	 	\beta_{11} & \beta_{12}\\\beta_{21}&\beta_{22}
-	 	\end{bmatrix}\begin{bmatrix}
-	 	\dot{u}\\\dot{\Omega}
-	 	\end{bmatrix} = \begin{bmatrix}
-	 	\frac{T_1}{r_1}+\frac{T_2}{r_2}+m_r\Omega v\\\frac{a}{r_1}T_1-\frac{b}{r_2}T_2
-	 	\end{bmatrix}
-	 	\end{equation}
-	 	\begin{equation}
-		m_r\left(\dot{v}+\Omega u\right) = F_y
-	 	\end{equation}
-	 	\label{eqn:shorthand}
-	 \end{subequations}
+	where 
+	\[K = 1 + \frac{mr^2}{I}
+	\]
+	noticing that equation (\ref{eqn:b}) is for both left and right wheels so it can be written in the following way
+	\begin{subequations}
+		\begin{equation}
+		P_1 = K_1F_1 - \frac{m_1r_1}{I_1}T_1
+		\label{eqn:b1}
+		\end{equation} 
+		\begin{equation}
+	     P_2 = K_2F_2 - \frac{m_2r_2}{I_2}T_2
+		\label{eqn:b2}
+		\end{equation}
+	\end{subequations}
+	Substituting equation (\ref{eqn:kinematic1}) into equation (\ref{eqn:xwheel}) gives
+	\begin{equation}
+	m_1\left(\dot{u}+\frac{L}{2}\dot{\Omega}\right) = F_1 - P_1\Rightarrow F_1 = P_1 + m_1\left(\dot{u}+\frac{L}{2}\dot{\Omega}\right)
+	\label{eqn:friction_fn_p_1}
+	\end{equation}
+	similar relation can be obtained for the left wheel by substituting equation (\ref{eqn:kinematic2}) into equation (\ref{eqn:xwheel}) of the left wheel to get
+	\begin{equation}
+	 F_2 = P_2 +m_2\left(\dot{u}-\frac{L}{2}\dot{\Omega}\right) 
+	 \label{eqn:friction_fn_p_2}
+	\end{equation}
+	Substituting equation (\ref{eqn:friction_fn_p_1})  in equation(\ref{eqn:b1}) we get
+	\begin{equation}
+	P_1 = \frac{K_1m_1}{1-K_1}\left(\dot{u}+ \frac{L}{2}\dot{\Omega}\right)-\frac{m_1r_1}{I_1(1-K_1)}T_1
+	\label{eqn:p1}
+	\end{equation}
+	similarly if we substitute equation (\ref{eqn:friction_fn_p_2}) in equation(\ref{eqn:b2}) we get
+	\begin{equation}
+	P_2 = \frac{K_2m_2}{1-K_2}\left(\dot{u}- \frac{L}{2}\dot{\Omega}\right)-\frac{m_2r_2}{I_2(1-K_2)}T_2
+	\label{eqn:p2}
+	\end{equation}
+	Now as we have expressions of the pulling force acting on the rover as a function of the applied torques, we can substitute them into the rover's equations of motion to obtain an expression for the effect of applied torque on the rover linear and angular speeds. Then substituting equations (\ref{eqn:p1}) and (\ref{eqn:p2}) into equation (\ref{eqn:EOM_mod}) we get
+	\begin{subequations}
+		\begin{equation}
+		\begin{split}
+		\left[m_r-\left(\frac{K_1m_1}{1-K_1}+\frac{K_2m_2}{1-K_2}\right)\right]\dot{u}-\left(\frac{K_1m_1}{1-K_1}-\frac{K_2m_2}{1-K_2}\right)\frac{L}{2}\dot{\Omega} =m_rv\Omega \\-\left[\frac{m_1r_1}{I_1(1-K_1)}T_1 + \frac{m_2r_2}{I_2(1-K_2)}T_2\right]
+		\end{split}
+		\end{equation}
+		\begin{equation}
+		m_r(\dot{v}+\Omega v) = F_y
+		\end{equation}
+		\begin{equation}
+		\begin{split}
+		\left(\frac{K_2m_2b}{1-K_2}-\frac{K_1m_1a}{1-K_1}\right)\dot{u}+\left[I_z-\left(\frac{K_1m_1a}{1-K_1}+\frac{K_2m_2b}{1-K_2}\right)\frac{L}{2}\right]\dot{\Omega} = \\ \frac{m_2r_2b}{I_2(1-K_2)}T_2-\frac{m_1r_1a}{I_1(1-K_1)}T_1
+		\end{split}
+		\end{equation}
+		\label{eqn:EOM_ps_added}
+	\end{subequations}
+	The last equation can be expressed in a more abbreviated form 
+	\begin{subequations}
+		\begin{equation}
+		\begin{bmatrix}
+		\beta_{11} & \beta_{12}\\\beta_{21} & \beta_{22}
+		\end{bmatrix}\begin{bmatrix}
+		\dot{u}\\\dot{\Omega}  
+		\end{bmatrix}=\begin{bmatrix}
+		\alpha_{11} & \alpha_{12}\\\alpha_{21} & \alpha_{22}
+		\end{bmatrix}\begin{bmatrix}
+		T_1\\T_2
+		\end{bmatrix}+\begin{bmatrix}
+		m_rv\Omega\\0
+		\end{bmatrix}
+		\end{equation}
+		\begin{equation}
+		m_r(\dot{v}+\Omega v) = F_y
+		\end{equation}
+		\label{eqn:final}
+	\end{subequations}
+	where
+	\[\begin{split}
+	&\beta_{11} = \left[m_r+\left(\frac{K_1m_1}{1-K_1}+\frac{K_2m_2}{1-K_2}\right)\right]\\
+	&\beta_{12} =-\left(\frac{K_1m_1}{1-K_1}-\frac{K_2m_2}{1-K_2}\right)\frac{L}{2} \\
+	&\beta_{21} = \left(\frac{K_2m_2b}{1-K_2}-\frac{K_1m_1a}{1-K_1}\right)\\
+	&\beta_{22} = \left[I_z-\left(\frac{K_1m_1a}{1-K_1}+\frac{K_2m_2b}{1-K_2}\right)\frac{L}{2}\right]\\
+	&\alpha_{11} = -\frac{m_1r_1}{I_1(1-K_1)}\\
+	&\alpha_{12} = -\frac{m_2r_2}{I_2(1-K_2)}\\
+	&\alpha_{21} = -\frac{m_1r_1a}{I_1(1-K_1)}\\
+	&\alpha_{22} = \frac{m_2r_2b}{I_2(1-K_2)}
+	\end{split}
+	\]
+	This system can be augmented to calculate the position of the rover with respect to the fixed global axes using the following transformation 
+	\begin{subequations}
+		\begin{equation}
+		\begin{bmatrix}
+		\dot{x}\\ \dot{y}
+		\end{bmatrix} = \begin{bmatrix}
+		\cos\phi& -\sin\phi\\ \sin\phi& \cos\phi
+		\end{bmatrix}\begin{bmatrix}
+		u\\v
+		\end{bmatrix}
+		\end{equation}
+		\begin{equation}
+		\dot{\phi} = \Omega
+		\end{equation}
+	\end{subequations}
+	
+	\subsubsection{Minimum torque required to start wheel rotation}
+	So far, the friction effect has been taken into account as a force acting on the wheel due to its rolling under torque, however, if the applied torque is not enough, the wheel will not start rotation. This quantity is important for simulation and system control purposes. Recalling equation (\ref{eqn:rotwheel})
+	\[I\ddot{\theta} = T - Fr
+	\]
+	if the wheel is about to rotate, the angular acceleration is equal to zero and the friction force is equal to 
+	\[
+	F = \mu_sN
+	\]
+	where $\mu_s$ is the static friction coefficient of the wheel with the ground and $N$ is the normal reaction force on the wheel by the ground. From equation(\ref{eqn:ywheel}), since there is no motion in the vertical plane, then 
+	\begin{equation}
+	N = mg + Q
+	\end{equation}
+	where $Q$ can be calculated from statics, depending on the position of  the rover's center of gravity, but for generality 
+	\[Q = \kappa m_r g
+	\]
+	where $<0\kappa<1$. The minimum torque in this case will be
+	\begin{equation}
+	T_{min} = \mu_sg\left(m+\kappa m_r\right)r
+	\end{equation}
 	 \subsubsection{Friction force from rear wheel}
 	 Assuming that the rear wheel friction is of viscous friction type, so it can be assumed that the friction force takes the following form 
 	 \begin{equation}
@@ -347,7 +402,7 @@
 	 	\end{bmatrix}\begin{bmatrix}
 	 	\dot{u}\\\dot{\Omega}
 	 	\end{bmatrix} = \begin{bmatrix}
-	 	\frac{T_1}{r_1}+\frac{T_2}{r_2}+m_rv\Omega-cu \\\frac{a}{r_1}T_1-\frac{b}{r_2}T_2-c\gamma\left(\gamma\Omega-v\right)
+	 	\alpha_{11}T_{1}+\alpha_{12}T_2+m_rv\Omega-cu \\\alpha_{21}T_1+\alpha_{22}T_2-c\gamma\left(\gamma\Omega-v\right)
 	 	\end{bmatrix}
 	 	\end{equation}
 	 	\begin{equation}

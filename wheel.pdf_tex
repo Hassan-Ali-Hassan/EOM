@@ -48,14 +48,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1)%
+  \begin{picture}(1,0.74999997)%
     \put(0,0){\includegraphics[width=\unitlength]{wheel.pdf}}%
-    \put(0.56661143,0.64144679){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10067152\unitlength}\raggedright T\end{minipage}}}%
-    \put(0.42317671,0.60670177){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12294398\unitlength}\raggedright P\end{minipage}}}%
-    \put(0.49712132,0.54166619){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright mg\end{minipage}}}%
-    \put(0.52589441,0.31783582){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright N\end{minipage}}}%
-    \put(0.37533256,0.35258083){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright F\end{minipage}}}%
-    \put(0.11759859,0.75191824){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11759859\unitlength}\raggedright y\end{minipage}}}%
-    \put(0.21737922,0.49177591){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06770828\unitlength}\raggedright X\end{minipage}}}%
+    \put(0.67100465,0.46065076){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10067152\unitlength}\raggedright T\end{minipage}}}%
+    \put(0.39393517,0.42590573){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12294398\unitlength}\raggedright P\end{minipage}}}%
+    \put(0.44828002,0.32879782){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright mg\end{minipage}}}%
+    \put(0.49665284,0.13703978){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright N\end{minipage}}}%
+    \put(0.65351166,0.16548521){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14699824\unitlength}\raggedright F\end{minipage}}}%
+    \put(0.56661141,0.72162771){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1728343\unitlength}\raggedright $\theta$\end{minipage}}}%
+    \put(0.76973623,0.6022473){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21203382\unitlength}\raggedright $\omega$\end{minipage}}}%
+    \put(0.46861256,0.49533952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13719834\unitlength}\raggedright $Q$\end{minipage}}}%
   \end{picture}%
 \endgroup%
